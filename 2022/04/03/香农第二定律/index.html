@@ -1,0 +1,225 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>信道与人生 | zane的知识屋</title><meta name="author" content="zane"><meta name="copyright" content="zane"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="j今天上计网课的时候讲到了第二香农定理，也就是有噪编码定理，它讲的是这样一件事：在任何有噪音的信道中，比如手机信号传输的电波，以及我们平时说话、写邮件，都有噪音的信道。当信息传输速率小于信道容量时，我们就可以找到一种信息传输方式，也叫编码方式，使信息传输的错误概率等于零。反之，只要信息传输速率稍微大于信道容量，哪怕只是大一丁点，信息传输出错的概率也是100%。 香农第二定律告诉我的是任何信道，容量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="信道与人生">
+<meta property="og:url" content="http://zanewang.online/2022/04/03/%E9%A6%99%E5%86%9C%E7%AC%AC%E4%BA%8C%E5%AE%9A%E5%BE%8B/index.html">
+<meta property="og:site_name" content="zane的知识屋">
+<meta property="og:description" content="j今天上计网课的时候讲到了第二香农定理，也就是有噪编码定理，它讲的是这样一件事：在任何有噪音的信道中，比如手机信号传输的电波，以及我们平时说话、写邮件，都有噪音的信道。当信息传输速率小于信道容量时，我们就可以找到一种信息传输方式，也叫编码方式，使信息传输的错误概率等于零。反之，只要信息传输速率稍微大于信道容量，哪怕只是大一丁点，信息传输出错的概率也是100%。 香农第二定律告诉我的是任何信道，容量">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://haowallpaper.com/link/common/file/previewFileImg/5a5c18f0ca30930d6a189a81b88b3a125a5c18f0ca30930d6a189a81b88b3a12">
+<meta property="article:published_time" content="2022-04-03T04:44:12.000Z">
+<meta property="article:modified_time" content="2025-03-11T15:11:31.837Z">
+<meta property="article:author" content="zane">
+<meta property="article:tag" content="人生感悟">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://haowallpaper.com/link/common/file/previewFileImg/5a5c18f0ca30930d6a189a81b88b3a125a5c18f0ca30930d6a189a81b88b3a12"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "信道与人生",
+  "url": "http://zanewang.online/2022/04/03/%E9%A6%99%E5%86%9C%E7%AC%AC%E4%BA%8C%E5%AE%9A%E5%BE%8B/",
+  "image": "https://haowallpaper.com/link/common/file/previewFileImg/5a5c18f0ca30930d6a189a81b88b3a125a5c18f0ca30930d6a189a81b88b3a12",
+  "datePublished": "2022-04-03T04:44:12.000Z",
+  "dateModified": "2025-03-11T15:11:31.837Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "zane",
+      "url": "http://zanewang.online/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/1.png"><link rel="canonical" href="http://zanewang.online/2022/04/03/%E9%A6%99%E5%86%9C%E7%AC%AC%E4%BA%8C%E5%AE%9A%E5%BE%8B/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '信道与人生',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/dog.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博客</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/1.png" alt="Logo"><span class="site-name">zane的知识屋</span></a><a class="nav-page-title" href="/"><span class="site-name">信道与人生</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博客</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">信道与人生</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2022-04-03T04:44:12.000Z" title="发表于 2022-04-03 12:44:12">2022-04-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%84%9F%E6%82%9F/">感悟</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><p>j今天上计网课的时候讲到了第二香农定理，也就是有噪编码定理，它讲的是这样一件事：在任何有噪音的信道中，比如手机信号传输的电波，以及我们平时说话、写邮件，都有噪音的信道。当信息传输速率小于信道容量时，我们就可以找到一种信息传输方式，也叫编码方式，使信息传输的错误概率等于零。反之，只要信息传输速率稍微大于信道容量，哪怕只是大一丁点，信息传输出错的概率也是100%。</p>
+<p>香农第二定律告诉我的是<strong>任何信道，容量都是事先限定的，要想不出错地传递信息，就要让信息的传输率比信道的容量略低一点。</strong></p>
+<p>即使是在高斯白噪音干扰的信道中也是有上限的。</p>
+<blockquote>
+<p><strong>C &#x3D; B*log2（1+S&#x2F;N）</strong></p>
+</blockquote>
+<p>我不认为自己在很多方面具有着天赋，但我也往往会迫于压力强迫自己和其他人一样，我会抓紧时间去学习，希望能超过其他人，但我总是会在这个过程中认识到自己的平凡 ， 我会问自己我的**“带宽”** 是否有着上限 。</p>
+<p>我总希望花最少时间学最多的东西，但当速度快到超过信道容量时，效率就是零。事实上，人一辈子是没有这么多没有那么多知识要学，我不是<strong>所罗门</strong>，不需要全知全能，相比之下，我的人生的时间倒是大把的。</p>
+<p>现在我认为更好的做法是延长时间，而不是试图提高接受信息的速率，因为人做事的能力也有一个类似信道容量的最高上限约束。超过这个上限去做事，不是得到部分结果，而是零结果。</p>
+<p>就像举重比赛一样，假如运动员能举的重量是100公斤，但他要了210公斤，没有举起来，裁判并不会因为他举到了90%的高度就给打九折，算成180公斤，而是直接宣布失败。</p>
+<p>但有办法改善吗，我认为答案就在定理的公式中，带宽和信道容量成正比，带宽可以理解为马路的宽度，越宽的马路上能同时跑的车越多。比如在大气中，传输语音信号，带宽就很窄，传递手机无线电信号，带宽就很宽。信噪比和信道容量也是成正比的，信号越强，噪音越弱，传输的信息就越多。这就如同你在安静的操场上大声讲话，周围人就都听清楚了。但你要是在嘈杂的饭馆里讲话，效果就差了。最后，信道容量和传输距离的平方根成反比，这也比较好理解，距离越远，信息传输出错的可能性就越大。</p>
+<ol>
+<li><p>能力的全面性，这相当于带宽。这需要长期训练，我建议你有意识地在生活中去实践和提升。</p>
+</li>
+<li><p>做事时是否集中精力，是否排除了一切干扰。集中精力，相当于提高了信号的能量，排除了干扰，相当于降低了噪音的能量。这样做事情的通道，信噪比就提高了。</p>
+</li>
+<li><p>一件事情完成的时间离现在越久远，失败的可能性越大。一是不要好高骛远，太远的目标是很难实现的，因为它相当于把能力的天花板降得很低。二是凡事要分步骤进行，每个步骤持续的时间不要太长。</p>
+</li>
+</ol>
+<p><img src="https://haowallpaper.com/link/common/file/previewFileImg/9d536c7e78f6444a39db3e5b8b34df979d536c7e78f6444a39db3e5b8b34df97" alt="alt"></p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E4%BA%BA%E7%94%9F%E6%84%9F%E6%82%9F/">人生感悟</a></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2021/11/13/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/" title="博客部署"><img class="cover" src="/./img/sky.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">博客部署</div></div><div class="info-2"><div class="info-item-1">如何选择合适的框架在个人博客部署上我已经走过来很多的坑 , 合理的框架绝对是你需要首先的选择,对于我来讲博客于我更像是一个记录个人知识的**”云端”**. 我个人推荐部署静态博客,主要是维护成本低 , 方便又快捷 , 静态博客在构建时会将所有页面生成为 HTML、CSS 和 JavaScript 等静态文件。这些文件无需服务器实时处理，可以直接被浏览器读取和渲染，大大缩短了页面加载时间。相比之下，动态博客需要在每次用户请求时，由服务器从数据库中读取数据、渲染页面，这一过程相对耗时。在安全性上静态博客不涉及服务器端脚本语言（如 PHP、Python 的 Flask 等）和数据库交互，减少了诸如 SQL 注入、跨站脚本攻击（XSS）等常见的安全漏洞风险。没有动态脚本的执行，黑客难以找到可利用的漏洞来篡改数据或获取敏感信息。  目前搭建博客的主流框架有 WordPress、VuePress、Hugo、Hexo 等等，WordPress是我在大学课上老师教的, 这东西是真的很简单 ,但问题就是太大了 , 用户请求的时候速度极慢 . 环境准备安装 Node.js 和 GIt  ...</div></div></div></a><a class="pagination-related" href="/2022/10/13/Java%E7%BA%A2%E5%8C%85%E9%A2%86%E5%8F%96bug/" title="Java红包领取BUG"><img class="cover" src="https://haowallpaper.com/link/common/file/previewFileImg/15701811102650688" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Java红包领取BUG</div></div><div class="info-2"><div class="info-item-1">最近遇到一个很有意思的bug ,业务逻辑很简单, 但涉及到技术面其实很深,拿出来记录一下. 本来要实现的功能是一个订单只发放一个红包,这个致命的错误会导致一个订单同时发放多个红包. 源码:123456789101112131415@transactional(rollbackFor=Exception.class)public void giveRedPacket(long orderId)&#123;    order o = getOrder(orderId);    if (o == null)&#123;        return;    &#125;    o = getOrderForUpdate(orderId);    if (o == null)&#123;        return;    &#125;    if (!existRedPacket(orderId , redid:&quot;20241111&quot;))&#123;        createRedPacket(orderId , redid:...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/dog.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">zane</div><div class="author-info-description"> 修行中~~~~~</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/12/%E8%B4%9D%E5%8F%B6%E6%96%AF-1/" title="贝叶斯">贝叶斯</a><time datetime="2025-03-11T16:06:55.000Z" title="发表于 2025-03-12 00:06:55">2025-03-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/%E8%B4%9D%E5%8F%B6%E6%96%AF/" title="贝叶斯">贝叶斯</a><time datetime="2025-03-11T15:13:42.000Z" title="发表于 2025-03-11 23:13:42">2025-03-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/11/Transformer/" title="Transformer">Transformer</a><time datetime="2025-03-11T15:13:33.000Z" title="发表于 2025-03-11 23:13:33">2025-03-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E7%AF%87/" title="机器学习第一篇"><img src="https://haowallpaper.com/link/common/file/previewFileImg/15789130517090624" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="机器学习第一篇"/></a><div class="content"><a class="title" href="/2025/01/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E7%AF%87/" title="机器学习第一篇">机器学习第一篇</a><time datetime="2025-01-10T02:44:12.000Z" title="发表于 2025-01-10 10:44:12">2025-01-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/11/ResNet/" title="Deep Residual Learning for Image Recognition"><img src="https://gitee.com/zanewang646/paper/raw/master/paper/Snipaste_2025-03-12_01-33-02.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Deep Residual Learning for Image Recognition"/></a><div class="content"><a class="title" href="/2024/01/11/ResNet/" title="Deep Residual Learning for Image Recognition">Deep Residual Learning for Image Recognition</a><time datetime="2024-01-11T02:13:51.000Z" title="发表于 2024-01-11 10:13:51">2024-01-11</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By zane</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  const loadMathjax = () => {
+    if (!window.MathJax) {
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          tags: 'none',
+        },
+        chtml: {
+          scale: 1.1
+        },
+        options: {
+          enableMenu: true,
+          renderActions: {
+            findScript: [10, doc => {
+              for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+                const display = !!node.type.match(/; *mode=display/)
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+                const text = document.createTextNode('')
+                node.parentNode.replaceChild(text, node)
+                math.start = {node: text, delim: '', n: 0}
+                math.end = {node: text, delim: '', n: 0}
+                doc.math.push(math)
+              }
+            }, '']
+          }
+        }
+      }
+
+      const script = document.createElement('script')
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+      script.id = 'MathJax-script'
+      script.async = true
+      document.head.appendChild(script)
+    } else {
+      MathJax.startup.document.state(0)
+      MathJax.texReset()
+      MathJax.typesetPromise()
+    }
+  }
+
+  btf.addGlobalFn('encrypt', loadMathjax, 'mathjax')
+  window.pjax ? loadMathjax() : window.addEventListener('load', loadMathjax)
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
