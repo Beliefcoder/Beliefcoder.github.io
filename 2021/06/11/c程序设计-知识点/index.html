@@ -1,0 +1,258 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>c程序设计-知识点 | zaneW的知识屋</title><meta name="author" content="zaneW"><meta name="copyright" content="zaneW"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1、关键字 static 的作用是什么？  在函数体，一个被声明为静态的变量在这一函数被调用过程中维持其值不变. 在模块内（但在函数体外），一个被声明为静态的变量可以被模块内所用函数访问，但不能被模块外其它函数访问。它是一个本地的全局变量。 在模块内，一个被声明为静态的函数只可被这一模块内的其它函数调用。那就是，这个函数被限制在声明它的模块的本地范围内使用.  2.“引用”与指针的区别是什么？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c程序设计-知识点">
+<meta property="og:url" content="http://zanewang.online/2021/06/11/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%9F%A5%E8%AF%86%E7%82%B9/index.html">
+<meta property="og:site_name" content="zaneW的知识屋">
+<meta property="og:description" content="1、关键字 static 的作用是什么？  在函数体，一个被声明为静态的变量在这一函数被调用过程中维持其值不变. 在模块内（但在函数体外），一个被声明为静态的变量可以被模块内所用函数访问，但不能被模块外其它函数访问。它是一个本地的全局变量。 在模块内，一个被声明为静态的函数只可被这一模块内的其它函数调用。那就是，这个函数被限制在声明它的模块的本地范围内使用.  2.“引用”与指针的区别是什么？">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://haowallpaper.com/link/common/file/previewFileImg/e062a75892021e139b8e89216b1518bee062a75892021e139b8e89216b1518be">
+<meta property="article:published_time" content="2021-06-11T15:13:33.000Z">
+<meta property="article:modified_time" content="2025-03-29T04:28:22.832Z">
+<meta property="article:author" content="zaneW">
+<meta property="article:tag" content="c">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://haowallpaper.com/link/common/file/previewFileImg/e062a75892021e139b8e89216b1518bee062a75892021e139b8e89216b1518be"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "c程序设计-知识点",
+  "url": "http://zanewang.online/2021/06/11/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%9F%A5%E8%AF%86%E7%82%B9/",
+  "image": "https://haowallpaper.com/link/common/file/previewFileImg/e062a75892021e139b8e89216b1518bee062a75892021e139b8e89216b1518be",
+  "datePublished": "2021-06-11T15:13:33.000Z",
+  "dateModified": "2025-03-29T04:28:22.832Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "zaneW",
+      "url": "http://zanewang.online/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/1.png"><link rel="canonical" href="http://zanewang.online/2021/06/11/c%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-%E7%9F%A5%E8%AF%86%E7%82%B9/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'c程序设计-知识点',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/dog.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博客</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://haowallpaper.com/link/common/file/previewFileImg/e062a75892021e139b8e89216b1518bee062a75892021e139b8e89216b1518be);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/1.png" alt="Logo"><span class="site-name">zaneW的知识屋</span></a><a class="nav-page-title" href="/"><span class="site-name">c程序设计-知识点</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博客</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">c程序设计-知识点</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2021-06-11T15:13:33.000Z" title="发表于 2021-06-11 23:13:33">2021-06-11</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>1、关键字 static 的作用是什么？</p>
+<ul>
+<li>在函数体，一个被声明为静态的变量在这一函数被调用过程中维持其值不变.</li>
+<li>在模块内（但在函数体外），一个被声明为静态的变量可以被模块内所用函数访问，但不能被模块外其它函数访问。它是一个本地的全局变量。</li>
+<li>在模块内，一个被声明为<strong>静态的函数</strong>只可被这一模块内的其它函数调用。那就是，这个函数被限制在声明它的模块的本地范围内使用.</li>
+</ul>
+<p>2.“引用”与指针的区别是什么？</p>
+<ul>
+<li>
+<p>引用必须被初始化，指针不必。</p>
+</li>
+<li>
+<p>引用初始化以后不能被改变，指针可以改变所指的对象。</p>
+</li>
+<li>
+<p>不存在指向空值的引用，但是存在指向空值的指针。</p>
+</li>
+<li>
+<p>指针指向的是地址 , 但与地址不绑定 ; 引用绑定固定的地址,不可对地址空间进行更替</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span>&amp; ref = a;   <span class="comment">// 引用必须初始化，且不可更改绑定</span></span><br><span class="line"><span class="type">int</span>* ptr = &amp;a;  <span class="comment">// 指针可以初始化，也可后续修改</span></span><br><span class="line">ptr = nullptr;  <span class="comment">// 指针允许置空</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>指针通过某个指针变量指向一个对象后，对它所指向的变量间接操作。程序中使用指针，程序的可读性差；而引用本身就是目标变量的别名，对引用的操作就是对目标变量的操作。</p>
+<p>流操作符&lt;&lt;和&gt;&gt;、赋值操作符=的返回值、拷贝构造函数的参数、赋值操作符=的参数、其它情况都推荐使用引用。</p>
+<p>优先使用引用(传参)，除非需要动态内存、空值或多级间接访问时再用指针。</p>
+<p><strong>3、 .h 头文件中的 ifndef/define/endif 的作用？</strong></p>
+<p>防止该头文件被重复引用</p>
+<p><strong>4、 #include 与 #include “file.h”的区别？</strong></p>
+<p>前者是从 Standard Library 的路径寻找和引用 file.h，而后者是从当前工作路径搜寻并引用 file.h。</p>
+<p><strong>5、描述实时系统的基本特性</strong></p>
+<p>在特定时间内完成特定的任务，实时性与可靠性。</p>
+<p><strong>6、全局变量和局部变量在内存中是否有区别？如果有，是什么区别？</strong></p>
+<p>全局变量储存在静态数据区，局部变量在堆栈中。</p>
+<p><strong>7、什么是平衡二叉树？</strong></p>
+<p>左右子树都是平衡二叉树 且左右子树的深度差值的绝对值不大于 1。</p>
+<p>8、堆栈溢出一般是由什么原因导致的？</p>
+<p>1.没有回收垃圾资源<br>
+2.层次太深的递归调用</p>
+<p>9、冒泡排序算法的时间复杂度是什么？</p>
+<p>O(n^2)</p>
+<p>10、什么函数不能声明为虚函数</p>
+<p>constructor(构造函数)</p>
+<ul>
+<li>
+<p>构造函数的作用是</p>
+<p>初始化对象的内存</p>
+<p>，包括：</p>
+<ul>
+<li>分配内存。</li>
+<li>初始化成员变量。</li>
+<li>设置虚函数表指针（vptr）。</li>
+</ul>
+</li>
+<li>
+<p><strong>关键点</strong>：虚函数表（vtable）的初始化是在构造函数中完成的。</p>
+</li>
+<li>
+<p><strong>虚函数依赖vtable</strong>：调用虚函数需要通过vptr查找vtable中的函数地址。</p>
+</li>
+<li>
+<p><strong>构造函数初始化vptr</strong>：在构造函数执行期间，vptr逐步被初始化为当前类的vtable。</p>
+</li>
+<li>
+<p><strong>矛盾点</strong>：如果构造函数是虚函数，调用它时需要依赖vtable，但此时vtable尚未完全初始化。</p>
+</li>
+</ul>
+<p><strong>11、队列和栈有什么区别？</strong></p>
+<p>队列先进先出，栈后进先出</p>
+<p><strong>12、不能做 switch()的参数类型</strong></p>
+<p>switch 的参数不能为实型</p>
+<p><strong>13、局部变量能否和全局变量重名？</strong><br>
+能，局部会屏蔽全局。要用全局变量，需要使用”::”<br>
+局部变量可以与全局变量同名，在函数内引用这个变量时，会用到同名的局部变量，而不会用到全局变量。对于有些编译器而言，在同一个函数内可以定义多个同名的局部变量，比如在两个循环体内都定义一个同名的局部变量，而那个局部变量的作用域就在那个循环体内</p>
+<p><strong>14、如何引用一个已经定义过的全局变量？</strong><br>
+可以用引用头文件的方式，也可以用 extern 关键字，如果用引用头文件方式来引用某个在头文件中声明的全局变量，假定你将那个变量写错了，那么在编译期间会报错，如果你用 extern 方式引用时，假定你犯了同样的错误，那么在编译期间不会报错，而在连接期间报错。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// FileA.c</span></span><br><span class="line"><span class="type">int</span> globalVar = <span class="number">42</span>; <span class="comment">// 定义全局变量</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// FileB.c</span></span><br><span class="line"><span class="keyword">extern</span> <span class="type">int</span> globalVar; <span class="comment">// 声明外部全局变量</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">func</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;GlobalVar: %d\n&quot;</span>, globalVar); <span class="comment">// 引用其他文件的全局变量</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>15、全局变量可不可以定义在可被多个.C 文件包含的头文件中？为什么？</strong><br>
+可以，在不同的 C 文件中以 static 形式来声明同名全局变量。<br>
+可以在不同的 C 文件中声明同名的全局变量，前提是其中只能有一个 C 文件中对此变量赋初值，此时连接不会出错。</p>
+<p><strong>16、语句 for( ；1 ；)有什么问题？它是什么意思？</strong><br>
+和 while(1)相同，无限循环</p>
+<p><strong>17、do……while 和 while 有什么区别？</strong><br>
+前一个循环一遍再判断，后一个判断以后再循环。</p>
+<p><strong>18、statac 全局变量、局部变量、函数与普通全局变量、局部变量、函数</strong><br>
+<strong>static 全局变量与普通的全局变量有什么区别？static 局部变量和普通局部变量有什么区别？static 函数与普通函数有什么区别</strong>？<br>
+全局变量(外部变量)的说明之前再冠以 static 就构成了静态的全局变量。全局变量本身就是静态存储方式， 静态全局变量当然也是静态存储方式。 这两者在存储方式上并无不同。这两者的区别虽在于非静态全局变量的作用域是整个源程序， 当一个源程序由多个源文件组成时，非静态的全局变量在各个源文件中都是有效的。 而静态全局变量则限制了其作用域， 即只在定义该变量的源文件内有效， 在同一源程序的其它源文件中不能使用它。由于静态全局变量的作用域局限于一个源文件内，只能为该源文件内的函数公用， 因此可以避免在其它源文件中引起错误。<br>
+从以上分析可以看出， 把局部变量改变为静态变量后是改变了它的存储方式即改变了它的生存期。把全局变量改变为静态变量后是改变了它的作用域， 限制了它的使用范围。<br>
+static 函数与普通函数作用域不同。仅在本文件。只在当前源文件中使用的函数应该说明为内部函数(static)，内部函数应该在当前源文件中说明和定义。对于可在当前源文件以外使用的函数，应该在一个头文件中说明，要使用这些函数的源文件要包含这个头文件static 全局变量与普通的全局变量有什么区别：static 全局变量只初使化一次，防止在其他文件单元中被引用;<br>
+static 局部变量和普通局部变量有什么区别：static 局部变量只被初始化一次，下一次依据上一次结果值；<br>
+static 函数与普通函数有什么区别：static 函数在内存中只有一份，普通函数在每个被调用中维持一份拷贝</p>
+<p><strong>19、程序的内存分配</strong><br>
+一个由 c/C++编译的程序占用的内存分为以下几个部分<br>
+1、栈区（stack）—由编译器自动分配释放，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。<br>
+2、堆区（heap）—一般由程序员分配释放，若程序员不释放，程序结束时可能由 OS 回收。注意它与数据结构中的堆是两回事，分配方式倒是类似于链表.<br>
+3、全局区（静态区）（static）—全局变量和静态变量的存储是放在一块的，初始化的全局变量和静态变量在一块区域，未初始化的全局变量和未初始化的静态变量在相邻的另一块区域。程序结束后由系统释放。<br>
+4、文字常量区—常量字符串就是放在这里的。程序结束后由系统释放。</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/c/">c</a></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2021/05/03/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" title="基础算法"><img class="cover" src="https://haowallpaper.com/link/common/file/getCroppingImg/16609728568741248" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">基础算法</div></div><div class="info-2"><div class="info-item-1">枚举 本质上就是遍历所有可能  根据实际条件确定条件和范围，在范围里面通过特定方法（二分，顺序，树等）搜索 在局部有界范围内用最好 规模越大，计算效率越低   例题（洛谷p1151）子树整数 对于一个五位数 abcdef, 可将其拆分为三个子数： sub1 = abc ,sub2 = bcd ,sub3 = def 现在给定一个正整数 K，要求你编程求出 10000 到 30000 之间所有满足下述条件的五位数，条件是这些五位数的三个子数 sub1,sub2,sub3 都可被 K 整除。 最终输出应该为正整数 每一行为一个满足条件的五位数，要求从小到大输出。不得重复输出或遗漏。如果无解，则输出 No。  1234567891011121314151617181920212223242526272829#include &lt;stdio.h&gt;void sub(int k) &#123;    int p = 0;    int a, b, c;    for (int i = 10000; i &lt;= 30000; i++)//注意范围     &#123;     ...</div></div></div></a><a class="pagination-related" href="/2021/11/27/%E8%99%9A%E5%87%BD%E6%95%B0/" title="虚函数"><img class="cover" src="https://haowallpaper.com/link/common/file/previewFileImg/b1bb53a17debf347b1a7ae8cbe9921a2" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">虚函数</div></div><div class="info-2"><div class="info-item-1">函数（Virtual Function） 是实现面向对象编程中**多态（Polymorphism）**的核心机制 虚函数是在基类中通过virtual关键字声明的成员函数，允许在派生类中重写（Override）该函数。 目的：通过基类指针或引用调用实际派生类对象的方法，实现运行时多态 12345678910111213141516class Animal &#123;public:    virtual void speak() &#123; cout &lt;&lt; &quot;Animal sound&quot; &lt;&lt; endl; &#125; // 虚函数&#125;;class Dog : public Animal &#123;public:    void speak() override &#123; cout &lt;&lt; &quot;Woof!&quot; &lt;&lt; endl; &#125; // 重写基类虚函数&#125;;int main() &#123;    Animal* animal = new Dog();   ...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/dog.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">zaneW</div><div class="author-info-description"> 修行中~~~~~</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/03/15/%E5%89%8D%E5%90%91%E4%BC%A0%E6%92%AD%E5%92%8C%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/" title="前向传播和反向传播"><img src="https://haowallpaper.com/link/common/file/previewFileImg/16563360456428928" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="前向传播和反向传播"/></a><div class="content"><a class="title" href="/2025/03/15/%E5%89%8D%E5%90%91%E4%BC%A0%E6%92%AD%E5%92%8C%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/" title="前向传播和反向传播">前向传播和反向传播</a><time datetime="2025-03-15T10:01:45.000Z" title="发表于 2025-03-15 18:01:45">2025-03-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/03/15/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/" title="评估指标"><img src="https://haowallpaper.com/link/common/file/previewFileImg/29fe9302fd3698101fa312858cdda4f4" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="评估指标"/></a><div class="content"><a class="title" href="/2025/03/15/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/" title="评估指标">评估指标</a><time datetime="2025-03-15T08:27:45.000Z" title="发表于 2025-03-15 16:27:45">2025-03-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/03/14/%E6%9C%BA%E5%99%A8%E3%80%81%E6%B7%B1%E5%BA%A6%E3%80%81%E5%BC%BA%E5%8C%96/" title="机器、深度、强化"><img src="https://haowallpaper.com/link/common/file/previewFileImg/16263610149424512" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="机器、深度、强化"/></a><div class="content"><a class="title" href="/2025/03/14/%E6%9C%BA%E5%99%A8%E3%80%81%E6%B7%B1%E5%BA%A6%E3%80%81%E5%BC%BA%E5%8C%96/" title="机器、深度、强化">机器、深度、强化</a><time datetime="2025-03-13T17:10:16.000Z" title="发表于 2025-03-14 01:10:16">2025-03-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E7%AF%87/" title="机器学习第一篇"><img src="https://haowallpaper.com/link/common/file/previewFileImg/15789130517090624" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="机器学习第一篇"/></a><div class="content"><a class="title" href="/2025/01/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E7%AF%87/" title="机器学习第一篇">机器学习第一篇</a><time datetime="2025-01-10T02:44:12.000Z" title="发表于 2025-01-10 10:44:12">2025-01-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/20/%E7%97%85%E8%99%AB%E5%AE%B3%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/" title="病虫害图像识别"><img src="https://haowallpaper.com/link/common/file/previewFileImg/16040968692813184" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="病虫害图像识别"/></a><div class="content"><a class="title" href="/2024/05/20/%E7%97%85%E8%99%AB%E5%AE%B3%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/" title="病虫害图像识别">病虫害图像识别</a><time datetime="2024-05-19T20:01:54.000Z" title="发表于 2024-05-20 04:01:54">2024-05-20</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://haowallpaper.com/link/common/file/previewFileImg/e062a75892021e139b8e89216b1518bee062a75892021e139b8e89216b1518be);"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By zaneW</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
