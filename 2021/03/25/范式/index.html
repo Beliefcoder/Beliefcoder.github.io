@@ -1,0 +1,534 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>范式 | zaneW的知识屋</title><meta name="author" content="zaneW"><meta name="copyright" content="zaneW"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="第一范式（1NF） - 原子性 第一范式（1NF）要求表中的每个字段（列）必须是原子的，即每个列的值不能是集合、数组或其他可以分解的多个值。表中的每个单元格只能包含一个值，而不能包含多个值。 1NF 要求：  表中的每列的值都是不可再分割的原子值。 每行必须是唯一的，不能有重复的行  不满足，违反原子性    学号 姓名 科目     001 张三 数学, 英语   002 李四 语文, 数学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="范式">
+<meta property="og:url" content="http://zanewang.online/2021/03/25/%E8%8C%83%E5%BC%8F/index.html">
+<meta property="og:site_name" content="zaneW的知识屋">
+<meta property="og:description" content="第一范式（1NF） - 原子性 第一范式（1NF）要求表中的每个字段（列）必须是原子的，即每个列的值不能是集合、数组或其他可以分解的多个值。表中的每个单元格只能包含一个值，而不能包含多个值。 1NF 要求：  表中的每列的值都是不可再分割的原子值。 每行必须是唯一的，不能有重复的行  不满足，违反原子性    学号 姓名 科目     001 张三 数学, 英语   002 李四 语文, 数学">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://haowallpaper.com/link/common/file/previewFileImg/16093935547698560">
+<meta property="article:published_time" content="2021-03-25T08:24:51.000Z">
+<meta property="article:modified_time" content="2025-04-03T17:37:35.239Z">
+<meta property="article:author" content="zaneW">
+<meta property="article:tag" content="数据库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://haowallpaper.com/link/common/file/previewFileImg/16093935547698560"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "范式",
+  "url": "http://zanewang.online/2021/03/25/%E8%8C%83%E5%BC%8F/",
+  "image": "https://haowallpaper.com/link/common/file/previewFileImg/16093935547698560",
+  "datePublished": "2021-03-25T08:24:51.000Z",
+  "dateModified": "2025-04-03T17:37:35.239Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "zaneW",
+      "url": "http://zanewang.online/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/1.png"><link rel="canonical" href="http://zanewang.online/2021/03/25/%E8%8C%83%E5%BC%8F/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '范式',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/dog.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博客</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://haowallpaper.com/link/common/file/previewFileImg/16093935547698560);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/1.png" alt="Logo"><span class="site-name">zaneW的知识屋</span></a><a class="nav-page-title" href="/"><span class="site-name">范式</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博客</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">范式</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2021-03-25T08:24:51.000Z" title="发表于 2021-03-25 16:24:51">2021-03-25</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h4 id="第一范式（1NF）-原子性"><strong>第一范式（1NF） - 原子性</strong></h4>
+<p>第一范式（1NF）要求表中的每个字段（列）必须是原子的，即每个列的值不能是集合、数组或其他可以分解的多个值。表中的每个单元格只能包含一个值，而不能包含多个值。</p>
+<h5 id="1NF-要求："><strong>1NF 要求：</strong></h5>
+<ul>
+<li>表中的每列的值都是不可再分割的原子值。</li>
+<li>每行必须是唯一的，不能有重复的行</li>
+</ul>
+<p>不满足，违反原子性</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">学号</th>
+<th style="text-align:left">姓名</th>
+<th style="text-align:left">科目</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">001</td>
+<td style="text-align:left">张三</td>
+<td style="text-align:left">数学, 英语</td>
+</tr>
+<tr>
+<td style="text-align:left">002</td>
+<td style="text-align:left">李四</td>
+<td style="text-align:left">语文, 数学</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>解决方法</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">学号</th>
+<th style="text-align:left">姓名</th>
+<th style="text-align:left">科目</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">001</td>
+<td style="text-align:left">张三</td>
+<td style="text-align:left">数学</td>
+</tr>
+<tr>
+<td style="text-align:left">001</td>
+<td style="text-align:left">张三</td>
+<td style="text-align:left">英语</td>
+</tr>
+<tr>
+<td style="text-align:left">002</td>
+<td style="text-align:left">李四</td>
+<td style="text-align:left">语文</td>
+</tr>
+<tr>
+<td style="text-align:left">002</td>
+<td style="text-align:left">李四</td>
+<td style="text-align:left">数学</td>
+</tr>
+</tbody>
+</table>
+<h4 id="第二范式（2NF）-消除部分依赖">第二范式（2NF） - 消除部分依赖</h4>
+<p>第二范式（2NF）要求表格不仅符合 <strong>第一范式（1NF）</strong>，还要消除 <strong>部分依赖</strong>。2NF 解决的是 <strong>非主属性</strong>（非关键字属性）部分依赖于 <strong>主键</strong> 的问题</p>
+<h5 id="2NF-要求："><strong>2NF 要求：</strong></h5>
+<ul>
+<li>表必须首先满足 <strong>第一范式</strong>。</li>
+<li><strong>非主属性</strong>（即不包含在候选键中的属性）必须完全依赖于 <strong>主键</strong>，而不能仅依赖于主键的一部分。</li>
+</ul>
+<p>假设有一个学生课程成绩表，主键是 <code>(学号, 课程)</code>， <code>姓名</code> 只依赖于 <code>学号</code>，而与 <code>课程</code> 无关。<code>姓名</code> 依赖于 <code>学号</code>，而不是 <code>学号 + 课程</code>（主键的组合），因此 <strong>姓名</strong> 不是完全依赖于主键，出现了部分依赖</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">学号</th>
+<th style="text-align:left">课程</th>
+<th style="text-align:left">姓名</th>
+<th style="text-align:left">成绩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">001</td>
+<td style="text-align:left">数学</td>
+<td style="text-align:left">张三</td>
+<td style="text-align:left">85</td>
+</tr>
+<tr>
+<td style="text-align:left">001</td>
+<td style="text-align:left">英语</td>
+<td style="text-align:left">张三</td>
+<td style="text-align:left">90</td>
+</tr>
+<tr>
+<td style="text-align:left">002</td>
+<td style="text-align:left">数学</td>
+<td style="text-align:left">李四</td>
+<td style="text-align:left">80</td>
+</tr>
+<tr>
+<td style="text-align:left">002</td>
+<td style="text-align:left">英语</td>
+<td style="text-align:left">李四</td>
+<td style="text-align:left">88</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>解决方法</p>
+</blockquote>
+<p>将其转换为 <strong>2NF</strong> 后，可以将 <code>姓名</code> 提取到另一个表中，形成两个表：</p>
+<p><strong>学生表</strong>（存储学号和姓名）：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">学号</th>
+<th style="text-align:left">姓名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">001</td>
+<td style="text-align:left">张三</td>
+</tr>
+<tr>
+<td style="text-align:left">002</td>
+<td style="text-align:left">李四</td>
+</tr>
+</tbody>
+</table>
+<p><strong>成绩表</strong>（存储学号、课程和成绩）：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">学号</th>
+<th style="text-align:left">课程</th>
+<th style="text-align:left">成绩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">001</td>
+<td style="text-align:left">数学</td>
+<td style="text-align:left">85</td>
+</tr>
+<tr>
+<td style="text-align:left">001</td>
+<td style="text-align:left">英语</td>
+<td style="text-align:left">90</td>
+</tr>
+<tr>
+<td style="text-align:left">002</td>
+<td style="text-align:left">数学</td>
+<td style="text-align:left">80</td>
+</tr>
+<tr>
+<td style="text-align:left">002</td>
+<td style="text-align:left">英语</td>
+<td style="text-align:left">88</td>
+</tr>
+</tbody>
+</table>
+<h4 id="第三范式（3NF）-消除传递依赖">第三范式（3NF） - 消除传递依赖</h4>
+<p>第三范式（3NF）要求表格不仅符合 <strong>第二范式（2NF）</strong>，还要消除 <strong>传递依赖</strong>。传递依赖是指非主属性依赖于其他非主属性，而不是直接依赖于主键。</p>
+<h5 id="3NF-要求："><strong>3NF 要求：</strong></h5>
+<ul>
+<li>表必须首先满足 <strong>第二范式（2NF）</strong>。</li>
+<li><strong>非主属性</strong>必须直接依赖于 <strong>主键</strong>，而不能依赖于其他非主属性。</li>
+</ul>
+<p>假设有一个员工表，其中包含了员工的 <code>部门名称</code> 和 <code>部门地址</code>，其中 <code>部门地址</code> 依赖于 <code>部门名称</code>，而 <code>部门名称</code> 又依赖于 <code>员工</code>（主键）。</p>
+<p>在这个表中，<code>部门地址</code> 依赖于 <code>部门名称</code>，而 <code>部门名称</code> 依赖于主键 <code>员工ID</code>，这就造成了传递依赖，即 <strong>员工ID → 部门名称 → 部门地址</strong>。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">员工ID</th>
+<th style="text-align:left">员工姓名</th>
+<th style="text-align:left">部门名称</th>
+<th style="text-align:left">部门地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">001</td>
+<td style="text-align:left">张三</td>
+<td style="text-align:left">销售部</td>
+<td style="text-align:left">北京市朝阳区</td>
+</tr>
+<tr>
+<td style="text-align:left">002</td>
+<td style="text-align:left">李四</td>
+<td style="text-align:left">技术部</td>
+<td style="text-align:left">上海市浦东新区</td>
+</tr>
+<tr>
+<td style="text-align:left">003</td>
+<td style="text-align:left">王五</td>
+<td style="text-align:left">销售部</td>
+<td style="text-align:left">北京市朝阳区</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>解决方法</p>
+</blockquote>
+<p>将 <code>部门信息</code> 提取到另一个单独的表中。</p>
+<p><strong>员工表</strong>（存储员工ID、姓名和部门ID）：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">员工ID</th>
+<th style="text-align:left">员工姓名</th>
+<th style="text-align:left">部门ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">001</td>
+<td style="text-align:left">张三</td>
+<td style="text-align:left">D1</td>
+</tr>
+<tr>
+<td style="text-align:left">002</td>
+<td style="text-align:left">李四</td>
+<td style="text-align:left">D2</td>
+</tr>
+<tr>
+<td style="text-align:left">003</td>
+<td style="text-align:left">王五</td>
+<td style="text-align:left">D1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>部门表</strong>（存储部门ID、部门名称和部门地址）：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">部门ID</th>
+<th style="text-align:left">部门名称</th>
+<th style="text-align:left">部门地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">D1</td>
+<td style="text-align:left">销售部</td>
+<td style="text-align:left">北京市朝阳区</td>
+</tr>
+<tr>
+<td style="text-align:left">D2</td>
+<td style="text-align:left">技术部</td>
+<td style="text-align:left">上海市浦东新区</td>
+</tr>
+</tbody>
+</table>
+<h4 id="4-BC范式（BCNF）-消除主键外的决定因素">4. BC范式（BCNF）- 消除主键外的决定因素</h4>
+<p>BCNF 是比第三范式（3NF）更严格的范式，其核心目标是消除所有 <strong>非主属性对候选键的部分依赖或传递依赖</strong>，同时确保所有函数依赖的 <strong>决定因素（左侧属性）</strong> 必须是 <strong>候选键</strong>。</p>
+<p><strong>BCNF 要求：</strong></p>
+<ul>
+<li><strong>所有非平凡函数依赖</strong> 的左侧（决定因素）必须是 <strong>候选键</strong></li>
+<li>若存在<strong>X → Y</strong>的依赖，则 <code>X</code> 必须是候选键</li>
+</ul>
+<p>其中主键为 <strong>仓库名 和 物品名 的组合</strong>，同时 <strong>管理员 和 物品名 的组合</strong>是候选键</p>
+<p>管理员的名字可以决定仓库名，那么这个候选键中的主属性就影响到主键中的属性了。<br>
+主键中的主属性对于候选键是部分依赖关系，这可能导致插入、删除和更新数据时产生异常。</p>
+<table>
+<thead>
+<tr>
+<th>仓库名</th>
+<th>管理员</th>
+<th>物品名</th>
+<th>数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>北京仓</td>
+<td>张三</td>
+<td>iPhone XR</td>
+<td>10</td>
+</tr>
+<tr>
+<td>北京仓</td>
+<td>张三</td>
+<td>iPhone 8P</td>
+<td>20</td>
+</tr>
+<tr>
+<td>上海仓</td>
+<td>李四</td>
+<td>iPhone 8</td>
+<td>30</td>
+</tr>
+<tr>
+<td>上海仓</td>
+<td>李四</td>
+<td>iPhone 7</td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>解决方案</p>
+</blockquote>
+<p>表拆成两张表</p>
+<p><strong>仓库 表</strong></p>
+<table>
+<thead>
+<tr>
+<th>仓库名</th>
+<th>物品名</th>
+<th>数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>北京仓</td>
+<td>iPhone XR</td>
+<td>10</td>
+</tr>
+<tr>
+<td>北京仓</td>
+<td>iPhone 8P</td>
+<td>20</td>
+</tr>
+<tr>
+<td>上海仓</td>
+<td>iPhone 8</td>
+<td>30</td>
+</tr>
+<tr>
+<td>上海仓</td>
+<td>iPhone 7</td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+<p><strong>仓库-管理员 表</strong></p>
+<table>
+<thead>
+<tr>
+<th>仓库名</th>
+<th>管理员</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>北京仓</td>
+<td>张三</td>
+</tr>
+<tr>
+<td>北京仓</td>
+<td>张三</td>
+</tr>
+<tr>
+<td>上海仓</td>
+<td>李四</td>
+</tr>
+<tr>
+<td>上海仓</td>
+<td>李四</td>
+</tr>
+</tbody>
+</table>
+<h4 id="总结">总结</h4>
+<ul>
+<li><strong>第一范式（1NF）</strong>：要求每个字段的值都是原子性的，不可再分。</li>
+<li><strong>第二范式（2NF）</strong>：要求满足 <strong>1NF</strong>，并且消除部分依赖，即非主属性必须完全依赖于主键。</li>
+<li><strong>第三范式（3NF）</strong>：要求满足 <strong>2NF</strong>，并且消除传递依赖，即非主属性只能依赖于主键，不能依赖于其他非主属性。</li>
+</ul>
+<p>在实际的数据库设计过程中，通常会逐步满足这些范式，以达到数据的规范化</p>
+<p>主要用于规范化数据表结构，减少数据冗余，提升数据库的查询效率和一致性。</p>
+<p>范式是递进的关系</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2021/03/01/switch()%E4%BD%BF%E7%94%A8%E4%B8%8E%E9%99%90%E5%88%B6/" title="switch()使用与限制"><img class="cover" src="https://haowallpaper.com/link/common/file/previewFileImg/2b7a2e1896e5d3d2b0226296304266232b7a2e1896e5d3d2b022629630426623" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">switch()使用与限制</div></div><div class="info-2"><div class="info-item-1">   类型 是否允许 典型语言 替代方案     整数 ✅ 所有语言 switch   浮点数 ❌ C/C++、Java、C# if-else、模式匹配   字符串 ✅（部分语言） Java 7+、C#、JavaScript switch、字典映射   布尔值 ❌（多数语言） 仅C# 允许 if-else   对象 ❌（除特定类型） JavaScript、Java（String） 类型检查+if-else    浮点数（float/double）  原因：浮点数存在精度问题（如 0.1 + 0.2 != 0.3），无法精确匹配。  1234double value = 3.14;switch (value) &#123; // 编译错误：表达式类型必须为整型或枚举    case 3.14:&quot;输出错误&quot;&#125; 布尔值（bool）  原因：布尔值只有 true/false，直接用 if-else 更直观。  对象  原因：对象无法直接进行值匹配  1....</div></div></div></a><a class="pagination-related" href="/2021/03/29/ER%E5%9B%BE%E6%A6%82%E5%BF%B5%E6%A8%A1%E5%9E%8B%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%85%B3%E7%B3%BB%E8%A1%A8/" title="ER图概念模型转换为关系模式"><img class="cover" src="https://haowallpaper.com/link/common/file/previewFileImg/8eeea8e9a9f16f35fe91e2408336e88b" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">ER图概念模型转换为关系模式</div></div><div class="info-2"><div class="info-item-1">E-R模型向关系模型的转换规则： 转换准则：1:1、1:N、M:N 二元联系 （1）一对一关系(One to One) 当转换为关系模型时，在两个实体任选一个添加另一个实体的主键即可。 例子：校里一个班级只有一个正班长，而一个班长只在一个班中任职，则班级与班长之间具有一对一联系。当转换为关系模式时，我们可以在班长关系中添加班级的主键（班级号）；或者在班级关系中添加班长的主键（学号）。 （2）多对一关系(Many to one) 保留多边(Many-side)E1的所有属性 + 一边(one-side)的主键 +...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E8%8C%83%E5%BC%8F%EF%BC%881NF%EF%BC%89-%E5%8E%9F%E5%AD%90%E6%80%A7"><span class="toc-number">1.</span> <span class="toc-text">第一范式（1NF） - 原子性</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1NF-%E8%A6%81%E6%B1%82%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">1NF 要求：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%8C%83%E5%BC%8F%EF%BC%882NF%EF%BC%89-%E6%B6%88%E9%99%A4%E9%83%A8%E5%88%86%E4%BE%9D%E8%B5%96"><span class="toc-number">2.</span> <span class="toc-text">第二范式（2NF） - 消除部分依赖</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2NF-%E8%A6%81%E6%B1%82%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">2NF 要求：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E8%8C%83%E5%BC%8F%EF%BC%883NF%EF%BC%89-%E6%B6%88%E9%99%A4%E4%BC%A0%E9%80%92%E4%BE%9D%E8%B5%96"><span class="toc-number">3.</span> <span class="toc-text">第三范式（3NF） - 消除传递依赖</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3NF-%E8%A6%81%E6%B1%82%EF%BC%9A"><span class="toc-number">3.1.</span> <span class="toc-text">3NF 要求：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-BC%E8%8C%83%E5%BC%8F%EF%BC%88BCNF%EF%BC%89-%E6%B6%88%E9%99%A4%E4%B8%BB%E9%94%AE%E5%A4%96%E7%9A%84%E5%86%B3%E5%AE%9A%E5%9B%A0%E7%B4%A0"><span class="toc-number">4.</span> <span class="toc-text">4. BC范式（BCNF）- 消除主键外的决定因素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url(https://haowallpaper.com/link/common/file/previewFileImg/16093935547698560);"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By zaneW</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

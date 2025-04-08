@@ -1,0 +1,257 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>监督学习 半监督学习 无监督学习 强化学习 | zaneW的知识屋</title><meta name="author" content="zaneW"><meta name="copyright" content="zaneW"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="先放结论    类型 数据需求 学习方式 典型任务     监督学习 大量带标签数据 从输入到输出的映射 分类、回归   半监督学习 少量标签+大量无标签数据 结合标签与数据分布 分类（标签不足场景）   无监督学习 完全无标签数据 发现数据内在结构 聚类、降维   强化学习 无需固定数据集 环境交互与奖励反馈 序列决策、控制任务      监督学习（Supervised Learning）  带">
+<meta property="og:type" content="article">
+<meta property="og:title" content="监督学习 半监督学习 无监督学习 强化学习">
+<meta property="og:url" content="http://zanewang.online/2023/12/31/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%20%E5%8D%8A%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%20%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%20%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="zaneW的知识屋">
+<meta property="og:description" content="先放结论    类型 数据需求 学习方式 典型任务     监督学习 大量带标签数据 从输入到输出的映射 分类、回归   半监督学习 少量标签+大量无标签数据 结合标签与数据分布 分类（标签不足场景）   无监督学习 完全无标签数据 发现数据内在结构 聚类、降维   强化学习 无需固定数据集 环境交互与奖励反馈 序列决策、控制任务      监督学习（Supervised Learning）  带">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://haowallpaper.com/link/common/file/previewFileImg/16637965655788928">
+<meta property="article:published_time" content="2023-12-31T08:24:34.000Z">
+<meta property="article:modified_time" content="2025-04-08T18:04:08.448Z">
+<meta property="article:author" content="zaneW">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://haowallpaper.com/link/common/file/previewFileImg/16637965655788928"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "监督学习 半监督学习 无监督学习 强化学习",
+  "url": "http://zanewang.online/2023/12/31/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%20%E5%8D%8A%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%20%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%20%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/",
+  "image": "https://haowallpaper.com/link/common/file/previewFileImg/16637965655788928",
+  "datePublished": "2023-12-31T08:24:34.000Z",
+  "dateModified": "2025-04-08T18:04:08.448Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "zaneW",
+      "url": "http://zanewang.online/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/1.png"><link rel="canonical" href="http://zanewang.online/2023/12/31/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%20%E5%8D%8A%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%20%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%20%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '监督学习 半监督学习 无监督学习 强化学习',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/dog.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博客</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://haowallpaper.com/link/common/file/previewFileImg/16637965655788928);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/1.png" alt="Logo"><span class="site-name">zaneW的知识屋</span></a><a class="nav-page-title" href="/"><span class="site-name">监督学习 半监督学习 无监督学习 强化学习</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博客</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">监督学习 半监督学习 无监督学习 强化学习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2023-12-31T08:24:34.000Z" title="发表于 2023-12-31 16:24:34">2023-12-31</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p><strong>先放结论</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th style="text-align:left">数据需求</th>
+<th style="text-align:left">学习方式</th>
+<th style="text-align:left">典型任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>监督学习</strong></td>
+<td style="text-align:left">大量带标签数据</td>
+<td style="text-align:left">从输入到输出的映射</td>
+<td style="text-align:left">分类、回归</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>半监督学习</strong></td>
+<td style="text-align:left">少量标签+大量无标签数据</td>
+<td style="text-align:left">结合标签与数据分布</td>
+<td style="text-align:left">分类（标签不足场景）</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>无监督学习</strong></td>
+<td style="text-align:left">完全无标签数据</td>
+<td style="text-align:left">发现数据内在结构</td>
+<td style="text-align:left">聚类、降维</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>强化学习</strong></td>
+<td style="text-align:left">无需固定数据集</td>
+<td style="text-align:left">环境交互与奖励反馈</td>
+<td style="text-align:left">序列决策、控制任务</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<ol>
+<li><strong>监督学习（Supervised Learning）</strong></li>
+</ol>
+<p>带标签的数据（输入-输出对）进行训练，模型学习输入到输出的映射关系</p>
+<p>优点：任务明确，效果通常较好。<br>
+缺点：依赖大量高质量标签数据，成本高。</p>
+<ol start="2">
+<li><strong>半监督学习（Semi-Supervised Learning）</strong></li>
+</ol>
+<p>核心特点：结合少量带标签数据和大量无标签数据进行训练。<br>
+目标：利用无标签数据提升模型性能，解决标注数据不足的问题。</p>
+<p>优点：降低对标签数据的依赖，提升模型泛化能力。<br>
+缺点：伪标签可能引入噪声，需谨慎处理。</p>
+<ol start="3">
+<li><strong>无监督学习（Unsupervised Learning）</strong></li>
+</ol>
+<p>核心特点：完全使用无标签数据，模型自行发现数据中的结构或模式。<br>
+目标：探索数据内在关系，如聚类、降维或关联分析</p>
+<p>优点：无需标注数据，适合探索性分析。<br>
+缺点：结果可能难以解释，任务目标较模糊。</p>
+<ol start="4">
+<li>强化学习（Reinforcement Learning, RL）</li>
+</ol>
+<p>核心特点：通过与环境交互学习策略，以最大化累积奖励。<br>
+目标：训练智能体（Agent）在动态环境中做出最优决策。</p>
+<p><strong>通过正反馈和负反馈调整学习策略</strong></p>
+<blockquote>
+<ol>
+<li>强化学习更关注长期累积奖励，而非单步的“满足目标”，追求的是全局最优解。</li>
+<li>强化学习通常假设环境满足<strong>马尔可夫性</strong>（当前状态包含所有历史信息），这是理论建模的基础。</li>
+<li>目标通常被量化为奖励函数（Reward Function），而不仅仅是简单的“满足/不满足”。</li>
+<li>强化学习中<strong>不一定显式定义惩罚</strong>，惩罚可以通过“负奖励”（如奖励值为负数）实现。</li>
+<li>某些场景中，环境可能不直接给出惩罚，而是通过“未获得奖励”间接反馈</li>
+<li>策略调整依赖于价值函数（Value Function）或策略梯度（Policy Gradient）</li>
+</ol>
+</blockquote>
+<p><strong>核心要素：</strong></p>
+<p>状态（State）：环境的当前情况。<br>
+动作（Action）：智能体的行为。<br>
+奖励（Reward）：环境对动作的反馈。</p>
+<p>策略（Policy）：定义智能体在特定状态下选择动作的规则，可以是确定性的或概率性的</p>
+<p>价值函数（Value Function）：评估状态或动作的长期价值</p>
+<p><img src="https://m.zanewang.online/upload/2025/03/31/20250331165349-7b08d0a2.png" alt=""></p>
+<blockquote>
+<p>迷宫导航：</p>
+<p>目标：找到出口。<br>
+奖励：到达出口+10，每一步消耗-1（鼓励快速找到出口）。<br>
+策略调整：智能体通过Q-learning更新动作价值，最终学会最短路径。</p>
+<p>AlphaGo：</p>
+<p>目标：赢棋。<br>
+奖励：胜利+1，失败-1，无中间奖励。<br>
+策略调整：通过自我对弈（Self-play）和蒙特卡洛树搜索（MCTS）优化策略。</p>
+<p>机器人行走：</p>
+<p>目标：稳定移动。<br>
+奖励：前进速度+0.1，摔倒-10。<br>
+策略调整：使用PPO算法优化动作策略</p>
+</blockquote>
+<p><strong>强化学习的本质是在动态环境中通过试错和反馈学习最优决策策略</strong></p>
+</article><div class="tag_share"></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2023/12/26/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" title="神经网络基础概念"><img class="cover" src="https://haowallpaper.com/link/common/file/previewFileImg/16411191742483840" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">神经网络基础概念</div></div><div class="info-2"><div class="info-item-1">机器算法三要素  任务 T ,经验 E , 性能 P.    经过从经验E中的改进 ，在任何任务T上由性能P衡量有所上升  任务 对 Example的处理 ——》样本指的是学习到的feature ， 样本通常形式为一个向量 ，   </div></div></div></a><a class="pagination-related" href="/2024/01/11/ResNet/" title="Deep Residual Learning for Image Recognition"><img class="cover" src="https://m.zanewang.online/_data/i/upload/2025/03/13/20250313212337-0ce9558d-me.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Deep Residual Learning for Image Recognition</div></div><div class="info-2"><div class="info-item-1">Deep Residual Learning for Image Recognition Abstract **p **: 深的卷积神经网络很难训练 K: 使用残差学习的框架 , 使得深的卷积神经网络容易训练 S:  层作为一个学习残差函数相对于层输入的一个方法 ， 而不是一个unreferenced fuctions 的方式 E: ImageNet 数据集上使用了152层深度 ， 相较于VGG深8倍 ，计算复杂度要低，COCO28%相关改进，仅替换为残差学习 Introduction  一般在第一页右上角放上一张最好看的图 ，扩展：prof. Randy —CMU最后一课    更深的神经网络随着训练轮数增加训练误差反而会变得更高 ，测试误差也会更高  网络堆叠的过于深的话，梯度会出现爆炸或者消失  传统解决办法： 在权重随机初始化的时候 ， 设定好权重的大小 ， 并在中间加入 normalization , 校验每个层的输出和它的梯度的均值和方差 ， 避免有一些曾过大或者某一些层过小 ， 保证能够收敛。 问题： 浅的网络效果不错的话 ，加一些层深的网络不应该变差 ，...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/dog.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">zaneW</div><div class="author-info-description"> 修行中~~~~~</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/03/15/%E5%89%8D%E5%90%91%E4%BC%A0%E6%92%AD%E5%92%8C%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/" title="前向传播和反向传播"><img src="https://haowallpaper.com/link/common/file/previewFileImg/16563360456428928" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="前向传播和反向传播"/></a><div class="content"><a class="title" href="/2025/03/15/%E5%89%8D%E5%90%91%E4%BC%A0%E6%92%AD%E5%92%8C%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD/" title="前向传播和反向传播">前向传播和反向传播</a><time datetime="2025-03-15T10:01:45.000Z" title="发表于 2025-03-15 18:01:45">2025-03-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/03/15/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/" title="评估指标"><img src="https://haowallpaper.com/link/common/file/previewFileImg/29fe9302fd3698101fa312858cdda4f4" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="评估指标"/></a><div class="content"><a class="title" href="/2025/03/15/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/" title="评估指标">评估指标</a><time datetime="2025-03-15T08:27:45.000Z" title="发表于 2025-03-15 16:27:45">2025-03-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/13/%E6%9C%BA%E5%99%A8%E3%80%81%E6%B7%B1%E5%BA%A6%E3%80%81%E5%BC%BA%E5%8C%96/" title="机器、深度、强化"><img src="https://haowallpaper.com/link/common/file/previewFileImg/16263610149424512" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="机器、深度、强化"/></a><div class="content"><a class="title" href="/2025/02/13/%E6%9C%BA%E5%99%A8%E3%80%81%E6%B7%B1%E5%BA%A6%E3%80%81%E5%BC%BA%E5%8C%96/" title="机器、深度、强化">机器、深度、强化</a><time datetime="2025-02-12T17:10:16.000Z" title="发表于 2025-02-13 01:10:16">2025-02-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E7%AF%87/" title="机器学习第一篇"><img src="https://haowallpaper.com/link/common/file/previewFileImg/15789130517090624" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="机器学习第一篇"/></a><div class="content"><a class="title" href="/2025/01/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E7%AF%87/" title="机器学习第一篇">机器学习第一篇</a><time datetime="2025-01-10T02:44:12.000Z" title="发表于 2025-01-10 10:44:12">2025-01-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/20/%E7%97%85%E8%99%AB%E5%AE%B3%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/" title="病虫害图像识别"><img src="https://haowallpaper.com/link/common/file/previewFileImg/16040968692813184" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="病虫害图像识别"/></a><div class="content"><a class="title" href="/2024/05/20/%E7%97%85%E8%99%AB%E5%AE%B3%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB/" title="病虫害图像识别">病虫害图像识别</a><time datetime="2024-05-19T20:01:54.000Z" title="发表于 2024-05-20 04:01:54">2024-05-20</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://haowallpaper.com/link/common/file/previewFileImg/16637965655788928);"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By zaneW</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

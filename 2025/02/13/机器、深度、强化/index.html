@@ -1,0 +1,199 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>机器、深度、强化 | zaneW的知识屋</title><meta name="author" content="zaneW"><meta name="copyright" content="zaneW"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="机器学习 机器学习，其实就是让计算机像孩子一样“学习”！ 给计算机大量的数据（就像给孩子看很多苹果），然后告诉它一些规则和方法（就像告诉孩子苹果的特征）。 计算机通过分析这些数据，自己总结出规律，掌握识别苹果的“技能”。 以后，就算给它看没见过的苹果，它也能根据学到的规律，判断出来这是苹果。 数据是“基础”： 机器学习需要大量的数据来进行学习。数据越多、质量越高，机器学得就越好。 算法是“方法”：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器、深度、强化">
+<meta property="og:url" content="http://zanewang.online/2025/02/13/%E6%9C%BA%E5%99%A8%E3%80%81%E6%B7%B1%E5%BA%A6%E3%80%81%E5%BC%BA%E5%8C%96/index.html">
+<meta property="og:site_name" content="zaneW的知识屋">
+<meta property="og:description" content="机器学习 机器学习，其实就是让计算机像孩子一样“学习”！ 给计算机大量的数据（就像给孩子看很多苹果），然后告诉它一些规则和方法（就像告诉孩子苹果的特征）。 计算机通过分析这些数据，自己总结出规律，掌握识别苹果的“技能”。 以后，就算给它看没见过的苹果，它也能根据学到的规律，判断出来这是苹果。 数据是“基础”： 机器学习需要大量的数据来进行学习。数据越多、质量越高，机器学得就越好。 算法是“方法”：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://haowallpaper.com/link/common/file/previewFileImg/16263610149424512">
+<meta property="article:published_time" content="2025-02-12T17:10:16.000Z">
+<meta property="article:modified_time" content="2025-04-08T18:00:53.396Z">
+<meta property="article:author" content="zaneW">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://haowallpaper.com/link/common/file/previewFileImg/16263610149424512"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "机器、深度、强化",
+  "url": "http://zanewang.online/2025/02/13/%E6%9C%BA%E5%99%A8%E3%80%81%E6%B7%B1%E5%BA%A6%E3%80%81%E5%BC%BA%E5%8C%96/",
+  "image": "https://haowallpaper.com/link/common/file/previewFileImg/16263610149424512",
+  "datePublished": "2025-02-12T17:10:16.000Z",
+  "dateModified": "2025-04-08T18:00:53.396Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "zaneW",
+      "url": "http://zanewang.online/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/1.png"><link rel="canonical" href="http://zanewang.online/2025/02/13/%E6%9C%BA%E5%99%A8%E3%80%81%E6%B7%B1%E5%BA%A6%E3%80%81%E5%BC%BA%E5%8C%96/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '机器、深度、强化',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/dog.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博客</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://haowallpaper.com/link/common/file/previewFileImg/16263610149424512);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/1.png" alt="Logo"><span class="site-name">zaneW的知识屋</span></a><a class="nav-page-title" href="/"><span class="site-name">机器、深度、强化</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博客</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">机器、深度、强化</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">发表于</span><time datetime="2025-02-12T17:10:16.000Z" title="发表于 2025-02-13 01:10:16">2025-02-13</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="机器学习">机器学习</h2>
+<p><strong>机器学习，其实就是让计算机像孩子一样“学习”！</strong> 给计算机<strong>大量的数据</strong>（就像给孩子看很多苹果），然后告诉它一些<strong>规则和方法</strong>（就像告诉孩子苹果的特征）。 计算机通过分析这些数据，自己总结出规律，掌握识别苹果的“技能”。 以后，就算给它看没见过的苹果，它也能根据学到的规律，判断出来这是苹果。</p>
+<p><strong>数据是“基础”：</strong> 机器学习需要大量的数据来进行学习。数据越多、质量越高，机器学得就越好。</p>
+<p><strong>算法是“方法”：</strong> 机器学习有很多种“学习方法”，也就是<strong>算法</strong>。 不同的算法适用于解决不同的问题。 常见的算法包括：</p>
+<ul>
+<li><strong>线性回归 (Linear Regression):</strong> 预测数值，比如预测房价、销量。</li>
+<li><strong>逻辑回归 (Logistic Regression):</strong> 进行分类，比如判断邮件是不是垃圾邮件、用户会不会点击广告。</li>
+<li><strong>决策树 (Decision Tree):</strong> 像流程图一样做决策，比如根据天气、温度等条件判断是否适合去野餐。</li>
+<li><strong>支持向量机 (Support Vector Machine, SVM):</strong> 擅长分类，在高维数据中也能找到最佳的分类界限。</li>
+<li><strong>K近邻 (K-Nearest Neighbors, KNN):</strong> 根据“物以类聚”的原则进行分类或预测，看看新来的数据“邻居”都是什么类型的。</li>
+<li><strong>聚类 (Clustering):</strong> 把数据自动分成不同的组别，比如根据用户行为把用户分成不同的群体。</li>
+</ul>
+<p><strong>机器学习的应用：</strong></p>
+<ul>
+<li><strong>垃圾邮件过滤：</strong> 机器学习算法能识别垃圾邮件的特征，把它们自动过滤掉。</li>
+<li><strong>商品推荐：</strong> 电商网站会根据您的浏览和购买记录，推荐您可能感兴趣的商品。</li>
+<li><strong>信用评分：</strong> 银行会用机器学习模型评估您的信用，决定是否给您贷款。</li>
+<li><strong>疾病诊断辅助：</strong> 医生可以用机器学习模型辅助诊断疾病，提高诊断的准确率。</li>
+<li><strong>人脸识别：</strong> 手机解锁、刷脸支付，都用到了人脸识别技术。</li>
+</ul>
+<p><strong>机器学习就是让计算机通过学习数据，掌握某种技能，从而完成特定任务</strong></p>
+<h2 id="深度学习">深度学习</h2>
+<p><strong>深度学习的原理：</strong></p>
+<ul>
+<li>*<em>神经网络是“骨架”：<strong>深度学习的核心是</strong>人工神经网络 (Artificial Neural Network, ANN)**。  它由很多层*<em>神经元 (Neuron)</em></em> 组成，每一层神经元都接收上一层神经元的信号，进行计算，并将结果传递给下一层。</li>
+<li><strong>“深度”是关键：</strong> 深度学习的“深度”就体现在<strong>神经网络的层数很多</strong>。  相比传统的机器学习算法，深度学习模型通常有更多层，能够处理更复杂的数据，学习到更抽象、更深层次的特征。</li>
+<li><strong>自动提取特征：</strong> 传统机器学习往往需要人工提取数据特征，比较麻烦。  而深度学习模型可以<strong>自动从原始数据中提取特征</strong>，例如，在图像识别中，深度学习模型能自动学习到图像的边缘、纹理、颜色等特征，无需人工干预。</li>
+</ul>
+<p><strong>深度学习的应用：</strong></p>
+<ul>
+<li><strong>图像识别：</strong> 识别图片中的物体、人脸，例如，自动驾驶汽车需要识别交通标志、行人、车辆等。</li>
+<li><strong>自然语言处理 (Natural Language Processing, NLP)：</strong> 让计算机理解和生成人类语言，例如，机器翻译、智能客服、聊天机器人。</li>
+<li><strong>语音识别：</strong> 把语音转换成文字，例如，语音助手、智能音箱。</li>
+<li><strong>游戏AI：</strong> 例如，AlphaGo、AlphaZero等围棋AI，战胜了人类顶尖棋手。</li>
+<li><strong>生成对抗网络 (Generative Adversarial Network, GAN):</strong> 可以生成逼真的图像、文本、音频等内容，例如，AI绘画、AI换脸。</li>
+</ul>
+<p><strong>深度学习是机器学习的一个分支，它使用深度神经网络模拟人脑，能够处理更复杂的数据，自动提取更深层次的特征。</strong> 它就像一个更高级、更智能的学生，不仅能做好练习题，还能自己总结出更深层次的解题规律，解决更复杂的问题。</p>
+<h3 id="强化学习">强化学习</h3>
+</article><div class="tag_share"></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/01/10/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E7%AF%87/" title="机器学习第一篇"><img class="cover" src="https://haowallpaper.com/link/common/file/previewFileImg/15789130517090624" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">机器学习第一篇</div></div><div class="info-2"><div class="info-item-1">学习计划最近准备深挖AI方向 , 本科期间写毕业论文的也了解了一些, 但未系统学习 , 故整理了一个学习计划  1 . 基础:  数学视频课     《线性代数与学习算法》  [视频 ](“【机器学习】带读李航 第一章-第四章《统计学习方法 第二版 监督学习》 跟我一起从菜鸟成长为大神_哔哩哔哩_bilibili“)      徐志钦老师(12,13,14,15,16) 配合《统计学习方法》,《深度学习》 [深度博客 ](“a大纲目录（所有文章索引） - 随笔分类 - B站-水论文的程序猿 - 博客园“)     吴恩达老师   Transformer和BERT python 进阶 sklearn pytorch(pytorch龙曲良)   </div></div></div></a><a class="pagination-related" href="/2025/03/15/%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/" title="评估指标"><img class="cover" src="https://haowallpaper.com/link/common/file/previewFileImg/29fe9302fd3698101fa312858cdda4f4" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">评估指标</div></div><div class="info-2"><div class="info-item-1">分类问题 混淆矩阵  对于二分类问题，混淆矩阵是一个 2x2 的矩阵。  TP (True Positive，真正例)：预测为正类且实际为正类的样本数量。（正确识别目标） TN (True Negative，真负例)：预测为负类且实际为负类的样本数量。（正确排除非目标） FP (False Positive，假正例)：预测为正类但实际为负类的样本数量。（误报） FN (False Negative，假负例)：预测为负类但实际为正类的样本数量。（漏报）  反应每个类别的正确和错误预测情况 正类目标类别 ：  疾病检测中的“患病”样本 垃圾邮件分类中的“垃圾邮件” 欺诈检测中的“欺诈交易”  负类非目标类别  准确率 Accuracy=TP+TNTP+TN+FP+FN\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN} Accuracy=TP+TN+FP+FNTP+TN​ 模型正确预测的样本占所有样本的比例 是一个全局评估指标，适用于样本类别分布均衡的情况  问题:...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.</span> <span class="toc-text">机器学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0"><span class="toc-number">2.</span> <span class="toc-text">深度学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-number">2.1.</span> <span class="toc-text">强化学习</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url(https://haowallpaper.com/link/common/file/previewFileImg/16263610149424512);"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By zaneW</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
